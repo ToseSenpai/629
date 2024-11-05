@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-menu .navbar-collapse .mobile-menu li ul {
+  opacity: 1 !important;
+  visibility: unset !important;
+}
+.main-menu .navbar-collapse li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+  top: 100%;
+  display: block;
+}
+.main-menu .navbar-collapse li ul li ul {
+  top: -2% !important;
+}
+
+/* Slick slider */
+.slick-dots,
+.testimonials-three-content .testimonial-two-item {
+  display: flex !important;
+}
+.slick-slide {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.food-category-active .slick-track .food-category-item {
+  display: flex !important;
+}
+
+.testimonials-three-content .slick-active .testimonial-two-item .content,
+.testimonials-three-content .slick-active .testimonial-two-item .image img,
+.testimonials-three-content .slick-active .testimonial-two-item .image .quote {
+  opacity: 1;
+  -webkit-transform: translate(0);
+  -ms-transform: translate(0);
+  transform: translate(0);
+}
+
+.testimonials-three-content .slick-active .testimonial-two-item .image .quote {
+  -webkit-transition-delay: 0.35s;
+  -o-transition-delay: 0.35s;
+  transition-delay: 0.35s;
+}
+
+.testimonials-five-authors .slick-slide {
+  width: 100% !important;
+  padding: unset !important;
+}
+.testimonials-five-authors .slick-current .testimonial-five-author-item img {
+  width: 75px;
+  height: 75px;
+  border: 3px solid var(--primary-color);
+}
+.testimonials-five-authors .testimonial-five-author-item {
+  width: unset !important;
+}
+
+.testimonials-five-content .slick-active .testimonial-five-item:before {
+  opacity: 1;
+  bottom: 100%;
+}
+
+.history-progress .canvas {
+  margin-right: 30px;
+}
+
+.history-progress .CircularProgressbar {
+  width: 120px;
+}
+.history-progress.style-two .canvas {
+  margin-right: 0;
+  margin-bottom: 12px;
+}
+
+.tab-style-one .nav-link:hover {
+  color: var(--heading-color);
+}
+
+
+
+
+
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Base styling per TabsList */
+.TabsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: transparent; /* Sfondo trasparente per tutti i dispositivi */
+}
+
+/* Base styling per TabsTrigger */
+.TabsTrigger {
+  font-size: 1.1rem;
+  font-family: 'Bebas Neue', sans-serif;
+  padding: 1rem;
+  color: #4a4a4a;
+  text-align: center;
+  border-radius: 0.5rem;
+  background-color: transparent; /* Sfondo trasparente */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  border: none; /* Rimuove qualsiasi bordo */
+  box-shadow: none; /* Rimuove qualsiasi ombra */
+}
+
+/* Hover e stato attivo */
+.TabsTrigger:hover {
+  background-color: #1877F2; /* Colore di sfondo al passaggio del mouse */
+  color: #fff; /* Colore del testo al passaggio del mouse */
+  transform: scale(1.05); /* Leggera espansione */
+}
+
+.TabsTrigger[data-state="active"] {
+  background-color: #1877F2;
+  color: #fff;
+  border-bottom: 3px solid #4a4a4a; /* Bordo inferiore per l’elemento attivo */
+}
+
+/* Stili specifici per ogni categoria */
+.TabsTrigger[data-value="birre"] {
+  background-color: transparent;
+}
+
+.TabsTrigger[data-value="vini"] {
+  background-color: transparent;
+}
+
+.TabsTrigger[data-value="cocktails"] {
+  background-color: transparent;
+}
+
+.TabsTrigger[data-value="distillati"] {
+  background-color: transparent;
+}
+
+.TabsTrigger[data-value="altro"] {
+  background-color: transparent;
+}
+
+/* Ottimizzazione per schermi mobili */
+@media (max-width: 768px) {
+  .TabsTrigger {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .TabsTrigger {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+
+/* Stile di base per il bottone scroll-top */
+.scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #1877F2 !important; /* Colore del pulsante */
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px); /* Posizionato fuori schermo */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Mostra il pulsante con effetto di comparsa */
+.scroll-top.show {
+  opacity: 1;
+  transform: translateY(0); /* Porta il pulsante in vista */
+}
+
+/* Effetto di rimbalzo al passaggio del mouse */
+.scroll-top:hover {
+  animation: bounce 0.5s; /* Attiva l'animazione di rimbalzo */
+}
+
+/* Animazione di rimbalzo */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Rimbalza leggermente in su */
+  }
+}
