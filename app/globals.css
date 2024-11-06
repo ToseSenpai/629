@@ -233,43 +233,490 @@
 }
 
 
-/* Stile di base per il bottone scroll-top */
-.scroll-top {
+/* Mobile Menu Styles */
+.header-inner {
+  height: 80px; /* Altezza fissa per l'header */
+}
+
+.hamburger {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 0; /* Reset margin */
+}
+
+.hamburger .line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: #333;
+  transition: all 0.3s ease-in-out;
+  transform-origin: left center;
+}
+
+.hamburger.active .line:nth-child(1) {
+  transform: rotate(45deg);
+  width: 28px;
+}
+
+.hamburger.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+  transform: rotate(-45deg);
+  width: 28px;
+}
+
+/* Mobile Navigation Overlay */
+.mobile-nav-overlay {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  background-color: #1877F2 !important; /* Colore del pulsante */
-  color: #fff;
-  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.95); /* Sfondo scuro semi-trasparente */
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobile-nav-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Pulsante di chiusura */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.close-button:hover {
+  transform: rotate(90deg);
+}
+
+.mobile-nav {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.mobile-nav-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.mobile-nav-item {
+  transform: translateY(20px);
   opacity: 0;
-  transform: translateY(20px); /* Posizionato fuori schermo */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: all 0.4s ease;
+  margin: 30px 0;
 }
 
-/* Mostra il pulsante con effetto di comparsa */
-.scroll-top.show {
+.mobile-nav-overlay.active .mobile-nav-item {
+  transform: translateY(0);
   opacity: 1;
-  transform: translateY(0); /* Porta il pulsante in vista */
 }
 
-/* Effetto di rimbalzo al passaggio del mouse */
-.scroll-top:hover {
-  animation: bounce 0.5s; /* Attiva l'animazione di rimbalzo */
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(1) {
+  transition-delay: 0.1s;
 }
 
-/* Animazione di rimbalzo */
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.mobile-nav-overlay.active .mobile-nav-item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.mobile-nav-item a {
+  color: white; /* Testo bianco */
+  font-size: 24px;
+  text-decoration: none;
+  position: relative;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.mobile-nav-item a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background: white;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.mobile-nav-item a:hover {
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.mobile-nav-item a:hover::after {
+  width: 80%;
+}
+
+/* Ensure header is above the overlay when closed */
+.main-header {
+  position: relative;
+  z-index: 1000;
+  background: white;
+}
+
+
+/* Footer Base Styles */
+.main-footer {
+  position: relative;
+  overflow: hidden;
+  background-color: #000000;
+  isolation: isolate;
+}
+
+/* Modern Animated Background */
+.footer-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.gradient-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.3;
+  animation: pulseSize 8s ease-in-out infinite;
+}
+
+.circle-1 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle at center, #4a90e2, transparent);
+  top: -150px;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.circle-2 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle at center, #c471ed, transparent);
+  bottom: -100px;
+  right: 15%;
+  animation-delay: -2s;
+}
+
+.circle-3 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle at center, #f64f59, transparent);
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: -4s;
+}
+
+.footer-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+}
+
+@keyframes pulseSize {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.4; }
+}
+
+/* Footer Reveal Animation */
+.footer-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.footer-loaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Column Hover Effect */
+.hover-up {
+  transition: transform 0.3s ease;
+}
+
+.footer-column:hover .hover-up {
+  transform: translateY(-10px);
+}
+
+/* Logo Bounce Animation */
+.logo-bounce {
+  display: inline-block;
+  animation: bounce 2s ease infinite;
+}
+
 @keyframes bounce {
-  0%, 100% {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Glowing Text Effect */
+.glowing-text {
+  position: relative;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: text-shadow 0.3s ease;
+}
+
+.glowing-text:hover {
+  text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+/* Social Icons Hover Effect */
+.social-hover-effect .social-icon {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.social-hover-effect .social-icon:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #000000;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Slide Up Animation for Links */
+.slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.6s ease forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
     transform: translateY(0);
   }
-  50% {
-    transform: translateY(-10px); /* Rimbalza leggermente in su */
+}
+
+/* Hover Underline Effect */
+.hover-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
+
+.hover-underline:hover::after {
+  width: 100%;
+}
+
+/* Shine Effect for Time Spans */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-25deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% { left: -75%; }
+  100% { left: 150%; }
+}
+
+/* Scroll to Top Button */
+.scroll-top {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  transform: translateY(20px);
+  backdrop-filter: blur(5px);
+}
+
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+/* Fade In Animation */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Copyright Link Hover Effect */
+.copyright-link {
+  position: relative;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.copyright-link:hover {
+  color: #4a90e2;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .gradient-circle {
+    filter: blur(40px);
+    opacity: 0.2;
+  }
+  
+  .circle-1 {
+    width: 200px;
+    height: 200px;
+    top: -100px;
+  }
+  
+  .circle-2 {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .circle-3 {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .footer-grid {
+    background-size: 20px 20px;
+  }
+  
+  .scroll-top {
+    right: 20px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
   }
 }
+
+
+/* Logo container styles */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.logo-link {
+  display: block;
+  line-height: 0;
+}
+
+/* Desktop logo styles */
+.logo-image-desktop {
+  width: auto;
+  height: 60px; /* Puoi modificare questa altezza in base alle tue esigenze */
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+/* Mobile logo styles */
+.logo-image-mobile {
+  width: auto;
+  height: 40px; /* Puoi modificare questa altezza in base alle tue esigenze */
+  object-fit: contain;
+}
+
+/* Quando l'header è fixed, riduci leggermente la dimensione del logo */
+.fixed-header .logo-image-desktop {
+  height: 50px;
+}
+
+/* Media queries per la responsività */
+@media (max-width: 1199px) {
+  .logo-wrapper {
+    padding: 0.25rem 0;
+  }
+}
+
