@@ -152,7 +152,7 @@ const Header = () => {
 
   return (
     <Fragment>
-      <header className="main-header white-menu menu-absolute d-none d-xl-block" style={{ position: 'relative', zIndex: 10 }}>
+      <header className="main-header menu-absolute d-none d-xl-block" style={{ position: 'relative', zIndex: 10 }}>
         <div className="header-upper">
           <div className="container-fluid clearfix">
             <div className="header-inner rel d-flex align-items-center justify-between">
