@@ -67,7 +67,7 @@ const page = () => {
       </section>
       {/* Hero Area End */}
       {/* Headline area start */}
-<div className="headline-area pt-40 rpt-45 rel z-1">
+<div className="headline-area pt-4 rpt-45 rel z-1">
   <span className="marquee-wrap">
     <span className="marquee-inner left">
       <span className="marquee-item">629</span>
@@ -105,7 +105,7 @@ const page = () => {
 </div>
 {/* Headline Area end */}
       {/* About Us Area start */}
-<section className="about-us-area pt-20 rpt-55 pb-100 rpb-70 rel z-1">
+<section className="about-us-area pt-4 rpt-55 pb-100 rpb-70 rel z-1">
   <div className="container">
     <div className="flex flex-col md:flex-row items-center justify-between">
       <div className="col-lg-6">
